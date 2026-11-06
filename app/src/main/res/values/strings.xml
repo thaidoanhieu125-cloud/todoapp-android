@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quản Lý Công Việc</string>
+    <string name="login">Đăng nhập</string>
+    <string name="register">Đăng ký</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="tasks">Công việc</string>
+    <string name="categories">Danh mục</string>
+    <string name="statistics">Thống kê</string>
+    <string name="profile">Cá nhân</string>
+    <string name="add_task">Thêm công việc</string>
+    <string name="edit">Sửa</string>
+    <string name="delete">Xóa</string>
+    <string name="save">Lưu</string>
+    <string name="cancel">Hủy</string>
+    <string name="account_action_in_progress">Đang xử lý…</string>
+</resources>

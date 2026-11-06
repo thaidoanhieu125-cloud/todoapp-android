@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:background="#1976D2" android:paddingStart="8dp" android:paddingEnd="8dp">
+        <ImageButton android:id="@+id/ibBack" android:layout_width="40dp" android:layout_height="40dp"
+            android:src="@android:drawable/ic_media_previous"
+            android:background="?attr/selectableItemBackgroundBorderless" app:tint="#FFFFFF"/>
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="Chi Tiết Công Việc" android:textColor="#FFFFFF" android:textSize="18sp"
+            android:textStyle="bold" android:layout_marginStart="8dp"/>
+        <CheckBox android:id="@+id/cbDone" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:buttonTint="#FFFFFF"/>
+    </LinearLayout>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+
+            <!-- Title -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+                <TextView android:id="@+id/tvTitle" android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:textSize="20sp" android:textStyle="bold"
+                    android:textColor="#212121" android:text="Tiêu đề"/>
+                <ImageView android:id="@+id/ivEditTitle" android:layout_width="36dp" android:layout_height="36dp"
+                    android:src="@android:drawable/ic_menu_edit" android:padding="6dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"/>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginBottom="12dp"/>
+
+            <!-- Note -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="GHI CHÚ" android:textSize="11sp" android:textColor="#9E9E9E"
+                android:textStyle="bold" android:layout_marginBottom="4dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+                <TextView android:id="@+id/tvNote" android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:textSize="15sp" android:textColor="#424242"
+                    android:text="Ghi chú"/>
+                <ImageView android:id="@+id/ivEditNote" android:layout_width="36dp" android:layout_height="36dp"
+                    android:src="@android:drawable/ic_menu_edit" android:padding="6dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"/>
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginBottom="12dp"/>
+
+            <!-- Category -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="DANH MỤC" android:textSize="11sp" android:textColor="#9E9E9E"
+                android:textStyle="bold" android:layout_marginBottom="4dp"/>
+            <TextView android:id="@+id/tvCategory" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:textSize="15sp" android:textColor="#1976D2"
+                android:text="Danh mục" android:padding="8dp" android:layout_marginBottom="12dp"
+                android:background="@android:drawable/btn_default"/>
+
+            <!-- Tags -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="NHÃN" android:textSize="11sp" android:textColor="#9E9E9E"
+                android:textStyle="bold" android:layout_marginBottom="4dp"/>
+            <TextView android:id="@+id/tvTags" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:textSize="15sp" android:textColor="#1976D2"
+                android:text="Nhãn" android:padding="8dp" android:layout_marginBottom="12dp"
+                android:background="@android:drawable/btn_default"/>
+
+            <!-- Due Date -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="HẠN HOÀN THÀNH" android:textSize="11sp" android:textColor="#9E9E9E"
+                android:textStyle="bold" android:layout_marginBottom="4dp"/>
+            <TextView android:id="@+id/tvDueDate" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:textSize="15sp" android:textColor="#1976D2"
+                android:text="Không có hạn" android:padding="8dp" android:layout_marginBottom="12dp"
+                android:background="@android:drawable/btn_default"/>
+
+            <!-- Reminder -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="GIỜ NHẮC (CHỈ LƯU TRÊN MÁY)" android:textSize="11sp" android:textColor="#9E9E9E"
+                android:textStyle="bold" android:layout_marginBottom="4dp"/>
+            <TextView android:id="@+id/tvReminderTime" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:textSize="15sp" android:textColor="#1976D2"
+                android:text="Chưa lưu giờ nhắc" android:padding="8dp" android:layout_marginBottom="24dp"
+                android:background="@android:drawable/btn_default"/>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginBottom="12dp"/>
+
+            <!-- Delete -->
+            <TextView android:id="@+id/tvDelete" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="🗑 Xóa công việc này"
+                android:textColor="#F44336" android:textSize="16sp" android:gravity="center"
+                android:padding="12dp" android:background="?attr/selectableItemBackground"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:background="#1976D2" android:paddingStart="16dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Tài Khoản" android:textColor="#FFFFFF"
+            android:textSize="18sp" android:textStyle="bold"/>
+    </LinearLayout>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+
+            <!-- Avatar & Username -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:gravity="center"
+                android:padding="24dp" android:background="#FFFFFF"
+                android:layout_marginBottom="12dp">
+                <TextView android:layout_width="80dp" android:layout_height="80dp"
+                    android:text="👤" android:textSize="48sp" android:gravity="center"
+                    android:background="#E3F2FD" android:layout_marginBottom="8dp"/>
+                <TextView android:id="@+id/tvUsername" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="username"
+                    android:textSize="18sp" android:textStyle="bold" android:textColor="#1565C0"/>
+            </LinearLayout>
+
+            <!-- Info Card -->
+            <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="12dp"
+                app:cardCornerRadius="8dp" app:cardElevation="2dp"
+                xmlns:app="http://schemas.android.com/apk/res-auto">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="THÔNG TIN CÁ NHÂN" android:textSize="11sp"
+                        android:textColor="#9E9E9E" android:textStyle="bold" android:layout_marginBottom="12dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="100dp" android:layout_height="wrap_content"
+                            android:text="Họ tên:" android:textColor="#757575"/>
+                        <TextView android:id="@+id/tvFullName" android:layout_width="0dp"
+                            android:layout_height="wrap_content" android:layout_weight="1"
+                            android:text="—" android:textColor="#212121" android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="100dp" android:layout_height="wrap_content"
+                            android:text="Email:" android:textColor="#757575"/>
+                        <TextView android:id="@+id/tvEmail" android:layout_width="0dp"
+                            android:layout_height="wrap_content" android:layout_weight="1"
+                            android:text="—" android:textColor="#212121" android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView android:layout_width="100dp" android:layout_height="wrap_content"
+                            android:text="Điện thoại:" android:textColor="#757575"/>
+                        <TextView android:id="@+id/tvPhone" android:layout_width="0dp"
+                            android:layout_height="wrap_content" android:layout_weight="1"
+                            android:text="—" android:textColor="#212121" android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Action Buttons -->
+            <Button android:id="@+id/btnEditProfile" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="✏️  Chỉnh sửa thông tin"
+                android:backgroundTint="#1976D2" android:layout_marginBottom="8dp"/>
+
+            <Button android:id="@+id/btnChangePassword" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="🔒  Đổi mật khẩu"
+                android:backgroundTint="#546E7A" android:layout_marginBottom="8dp"/>
+
+            <Button android:id="@+id/btnManageTags" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="🏷️  Quản lý nhãn"
+                android:backgroundTint="#00897B" android:layout_marginBottom="24dp"/>
+
+            <Button android:id="@+id/btnLogout" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="🚪  Đăng xuất"
+                android:backgroundTint="#E53935"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

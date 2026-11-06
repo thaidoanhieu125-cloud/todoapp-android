@@ -1,0 +1,19 @@
+<lint-module
+    format="1"
+    dir="D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app"
+    name=":app"
+    type="APP"
+    maven="TodoApp:app:unspecified"
+    agpVersion="8.13.2"
+    buildFolder="build"
+    bootClassPath="D:\PhanMem\AndroidStudioSDK\platforms\android-34\android.jar;D:\PhanMem\AndroidStudioSDK\build-tools\35.0.0\core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-34"
+    neverShrinking="true">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="debug"/>
+</lint-module>

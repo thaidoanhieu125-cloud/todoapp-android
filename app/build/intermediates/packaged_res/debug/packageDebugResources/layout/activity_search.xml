@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <!-- Search Toolbar -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:background="#1976D2" android:paddingStart="4dp" android:paddingEnd="8dp">
+        <ImageButton android:id="@+id/ibBack" android:layout_width="40dp" android:layout_height="40dp"
+            android:src="@android:drawable/ic_media_previous"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="#FFFFFF"/>
+        <EditText android:id="@+id/etSearch" android:layout_width="0dp"
+            android:layout_height="36dp" android:layout_weight="1"
+            android:background="#FFFFFF" android:hint="Tìm kiếm công việc..."
+            android:paddingStart="12dp" android:paddingEnd="12dp"
+            android:singleLine="true" android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"/>
+        <Button android:id="@+id/btnFilterTags" android:layout_width="wrap_content"
+            android:layout_height="32dp" android:text="Nhãn"
+            android:textSize="12sp" android:backgroundTint="#0D47A1"/>
+    </LinearLayout>
+
+    <!-- Selected Tag Chips -->
+    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#FFFFFF" android:visibility="visible">
+        <LinearLayout android:id="@+id/llSelectedTags" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:orientation="horizontal"
+            android:padding="8dp"/>
+    </HorizontalScrollView>
+
+    <!-- Results -->
+    <TextView android:id="@+id/tvEmpty" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:text="Không tìm thấy kết quả"
+        android:gravity="center" android:textColor="#9E9E9E" android:textSize="16sp"
+        android:visibility="gone"/>
+
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvTasks"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:padding="8dp" android:clipToPadding="false"/>
+
+</LinearLayout>

@@ -1,0 +1,856 @@
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\task\AddTaskActivity.kt:95: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+                val date = String.format("%04d-%02d-%02d %02d:%02d:00", y, m + 1, d, h, min)
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\task\TaskDetailActivity.kt:151: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+                val date = String.format("%04d-%02d-%02d %02d:%02d:00", y, m + 1, d, h, min)
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\task\TaskDetailActivity.kt:161: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+                val date = String.format("%04d-%02d-%02d %02d:%02d:00", y, m + 1, d, h, min)
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "DefaultLocale":
+   Calling String#toLowerCase() or #toUpperCase() without specifying an
+   explicit locale is a common source of bugs. The reason for that is that
+   those methods will use the current locale on the user's device, and even
+   though the code appears to work correctly when you are developing the app,
+   it will fail in some locales. For example, in the Turkish locale, the
+   uppercase replacement for i is not I.
+
+   If you want the methods to just perform ASCII replacement, for example to
+   convert an enum name, call String#toUpperCase(Locale.ROOT) instead. If you
+   really want to use the current locale, call
+   String#toUpperCase(Locale.getDefault()) instead.
+
+   https://developer.android.com/reference/java/util/Locale.html#default_locale
+
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\build.gradle:13: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
+        targetSdk 34
+        ~~~~~~~~~~~~
+
+   Explanation for issues of type "OldTargetApi":
+   When your application or sdk runs on a version of Android that is more
+   recent than your targetSdkVersion specifies that it has been tested with,
+   various compatibility modes kick in. This ensures that your application
+   continues to work, but it may look out of place. For example, if the
+   targetSdkVersion is less than 14, your app may get an option button in the
+   UI.
+
+   To fix this issue, set the targetSdkVersion to the highest available value.
+   Then test your app to make sure everything works correctly. You may want to
+   consult the compatibility notes to see what changes apply to each version
+   you are adding support for:
+   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
+   as well as follow this guide:
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.
+   html
+
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\build.gradle:8: Warning: A newer version of compileSdkVersion than 34 is available: 36 [GradleDependency]
+    compileSdk 34
+    ~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\build.gradle:36: Warning: A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.19.1 [GradleDependency]
+    implementation 'androidx.core:core-ktx:1.12.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\build.gradle:37: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.8.0 [GradleDependency]
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\build.gradle:38: Warning: A newer version of com.google.android.material:material than 1.11.0 is available: 1.14.0 [GradleDependency]
+    implementation 'com.google.android.material:material:1.11.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\build.gradle:39: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.2 [GradleDependency]
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\build.gradle:40: Warning: A newer version of androidx.recyclerview:recyclerview than 1.3.2 is available: 1.4.0 [GradleDependency]
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\build.gradle:42: Warning: A newer version of androidx.coordinatorlayout:coordinatorlayout than 1.2.0 is available: 1.3.0 [GradleDependency]
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\build.gradle:43: Warning: A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.19.1 [GradleDependency]
+    implementation 'androidx.core:core-ktx:1.12.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\item_task.xml:60: Warning: Use app:drawableStartCompat instead of android:drawableStart [UseCompatTextViewDrawableXml from androidx.appcompat]
+                    android:drawableStart="@android:drawable/ic_menu_my_calendar"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UseCompatTextViewDrawableXml":
+   TextView uses android: compound drawable attributes instead of app: ones
+
+   Vendor: Android Open Source Project
+   Identifier: androidx.appcompat
+   Feedback: https://issuetracker.google.com/issues/new?component=460343
+
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\statistics\StatsPieView.kt:51: Warning: Avoid object allocations during draw/layout operations (preallocate and reuse instead) [DrawAllocation]
+        val rect = RectF(left, top, left + size, top + size)
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "DrawAllocation":
+   You should avoid allocating objects during a drawing or layout operation.
+   These are called frequently, so a smooth UI can be interrupted by garbage
+   collection pauses caused by the object allocations.
+
+   The way this is generally handled is to allocate the needed objects up
+   front and to reuse them for each drawing operation.
+
+   Some methods allocate memory on your behalf (such as Bitmap.create), and
+   these should be handled in the same way.
+
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:27: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+             ~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:44: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+             ~~~~~~~~~~~~
+
+   Explanation for issues of type "UseCompoundDrawables":
+   A LinearLayout which contains an ImageView and a TextView can be more
+   efficiently handled as a compound drawable (a single TextView, using the
+   drawableTop, drawableLeft, drawableRight and/or drawableBottom attributes
+   to draw one or more images adjacent to the text).
+
+   If the two widgets are offset from each other with margins, this can be
+   replaced with a drawablePadding attribute.
+
+   There's a lint quickfix to perform this conversion in the Eclipse plugin.
+
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_add_task.xml:7: Warning: Possible overdraw: Root element paints background #FFFFFF with a theme that also paints a background (inferred theme is @style/Theme.TodoApp) [Overdraw]
+    android:background="#FFFFFF">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_change_password.xml:7: Warning: Possible overdraw: Root element paints background #FFFFFF with a theme that also paints a background (inferred theme is @style/Theme.TodoApp) [Overdraw]
+    android:background="#FFFFFF">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_login.xml:5: Warning: Possible overdraw: Root element paints background #FFFFFF with a theme that also paints a background (inferred theme is @style/Theme.TodoApp) [Overdraw]
+    android:background="#FFFFFF">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_main.xml:7: Warning: Possible overdraw: Root element paints background #F5F5F5 with a theme that also paints a background (inferred theme is @style/Theme.TodoApp) [Overdraw]
+    android:background="#F5F5F5">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_register.xml:7: Warning: Possible overdraw: Root element paints background #FFFFFF with a theme that also paints a background (inferred theme is @style/Theme.TodoApp) [Overdraw]
+    android:background="#FFFFFF">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_search.xml:7: Warning: Possible overdraw: Root element paints background #F5F5F5 with a theme that also paints a background (inferred theme is @style/Theme.TodoApp) [Overdraw]
+    android:background="#F5F5F5">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:7: Warning: Possible overdraw: Root element paints background #FFFFFF with a theme that also paints a background (inferred theme is @style/Theme.TodoApp) [Overdraw]
+    android:background="#FFFFFF">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_category.xml:6: Warning: Possible overdraw: Root element paints background #F5F5F5 with a theme that also paints a background (inferred theme is @style/Theme.TodoApp) [Overdraw]
+    android:background="#F5F5F5">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:6: Warning: Possible overdraw: Root element paints background #F5F5F5 with a theme that also paints a background (inferred theme is @style/Theme.TodoApp) [Overdraw]
+    android:background="#F5F5F5">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_statistics.xml:6: Warning: Possible overdraw: Root element paints background #F5F5F5 with a theme that also paints a background (inferred theme is @style/Theme.TodoApp) [Overdraw]
+    android:background="#F5F5F5">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_tag.xml:7: Warning: Possible overdraw: Root element paints background #F5F5F5 with a theme that also paints a background (inferred theme is @style/Theme.TodoApp) [Overdraw]
+    android:background="#F5F5F5">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_task_list.xml:7: Warning: Possible overdraw: Root element paints background #F5F5F5 with a theme that also paints a background (inferred theme is @style/Theme.TodoApp) [Overdraw]
+    android:background="#F5F5F5">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\colors.xml:3: Warning: The resource R.color.purple_200 appears to be unused [UnusedResources]
+    <color name="purple_200">#FFBB86FC</color>
+           ~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\colors.xml:4: Warning: The resource R.color.purple_500 appears to be unused [UnusedResources]
+    <color name="purple_500">#FF6200EE</color>
+           ~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\colors.xml:5: Warning: The resource R.color.purple_700 appears to be unused [UnusedResources]
+    <color name="purple_700">#FF3700B3</color>
+           ~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\colors.xml:6: Warning: The resource R.color.teal_200 appears to be unused [UnusedResources]
+    <color name="teal_200">#FF03DAC5</color>
+           ~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\colors.xml:7: Warning: The resource R.color.teal_700 appears to be unused [UnusedResources]
+    <color name="teal_700">#FF018786</color>
+           ~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\strings.xml:4: Warning: The resource R.string.login appears to be unused [UnusedResources]
+    <string name="login">Đăng nhập</string>
+            ~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\strings.xml:5: Warning: The resource R.string.register appears to be unused [UnusedResources]
+    <string name="register">Đăng ký</string>
+            ~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\strings.xml:6: Warning: The resource R.string.logout appears to be unused [UnusedResources]
+    <string name="logout">Đăng xuất</string>
+            ~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\strings.xml:7: Warning: The resource R.string.tasks appears to be unused [UnusedResources]
+    <string name="tasks">Công việc</string>
+            ~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\strings.xml:8: Warning: The resource R.string.categories appears to be unused [UnusedResources]
+    <string name="categories">Danh mục</string>
+            ~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\strings.xml:9: Warning: The resource R.string.statistics appears to be unused [UnusedResources]
+    <string name="statistics">Thống kê</string>
+            ~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\strings.xml:10: Warning: The resource R.string.profile appears to be unused [UnusedResources]
+    <string name="profile">Cá nhân</string>
+            ~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\strings.xml:11: Warning: The resource R.string.add_task appears to be unused [UnusedResources]
+    <string name="add_task">Thêm công việc</string>
+            ~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\strings.xml:12: Warning: The resource R.string.edit appears to be unused [UnusedResources]
+    <string name="edit">Sửa</string>
+            ~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\strings.xml:13: Warning: The resource R.string.delete appears to be unused [UnusedResources]
+    <string name="delete">Xóa</string>
+            ~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\strings.xml:14: Warning: The resource R.string.save appears to be unused [UnusedResources]
+    <string name="save">Lưu</string>
+            ~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\values\strings.xml:15: Warning: The resource R.string.cancel appears to be unused [UnusedResources]
+    <string name="cancel">Hủy</string>
+            ~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+   Available options:
+
+   **skip-libraries** (default is true):
+   Whether the unused resource check should skip reporting unused resources in libraries.
+
+   Many libraries will declare resources that are part of the library surface; other modules depending on the library will also reference the resources. To avoid reporting all these resources as unused (in the context of a library), the unused resource check normally skips reporting unused resources in libraries. Instead, run the unused resource check on the consuming app module (along with `checkDependencies=true`).
+
+   However, there are cases where you want to check that all the resources declared in a library are used; in that case, you can disable the skip option.
+
+   To configure this option, use a `lint.xml` file with an <option> like this:
+
+   ```xml
+   <lint>
+       <issue id="UnusedResources">
+           <option name="skip-libraries" value="true" />
+       </issue>
+   </lint>
+   ```
+
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_search.xml:17: Warning: This text field does not specify an inputType [TextFields]
+        <EditText android:id="@+id/etSearch" android:layout_width="0dp"
+         ~~~~~~~~
+
+   Explanation for issues of type "TextFields":
+   Providing an inputType attribute on a text field improves usability because
+   depending on the data to be input, optimized keyboards can be shown to the
+   user (such as just digits and parentheses for a phone number). 
+
+   The lint detector also looks at the id of the view, and if the id offers a
+   hint of the purpose of the field (for example, the id contains the phrase
+   phone or email), then lint will also ensure that the inputType contains the
+   corresponding type attributes.
+
+   If you really want to keep the text field generic, you can suppress this
+   warning by setting inputType="text".
+
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_search.xml:17: Warning: Missing autofillHints attribute [Autofill]
+        <EditText android:id="@+id/etSearch" android:layout_width="0dp"
+         ~~~~~~~~
+
+   Explanation for issues of type "Autofill":
+   Specify an autofillHints attribute when targeting SDK version 26 or higher
+   or explicitly specify that the view is not important for autofill. Your app
+   can help an autofill service classify the data correctly by providing the
+   meaning of each view that could be autofillable, such as views representing
+   usernames, passwords, credit card fields, email addresses, etc.
+
+   The hints can have any value, but it is recommended to use predefined
+   values like 'username' for a username or 'creditCardNumber' for a credit
+   card number. For a list of all predefined autofill hint constants, see the
+   AUTOFILL_HINT_ constants in the View reference at
+   https://developer.android.com/reference/android/view/View.html.
+
+   You can mark a view unimportant for autofill by specifying an
+   importantForAutofill attribute on that view or a parent view. See
+   https://developer.android.com/reference/android/view/View.html#setImportant
+   ForAutofill(int).
+
+   https://developer.android.com/guide/topics/text/autofill.html
+
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\category\CategoryAdapter.kt:42: Warning: Use the KTX extension function String.toColorInt instead? [UseKtx]
+        try { holder.vColor.setBackgroundColor(Color.parseColor(cat.color)) }
+                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\category\CategoryFragment.kt:79: Warning: Use the KTX extension function String.toColorInt instead? [UseKtx]
+            v.setBackgroundColor(android.graphics.Color.parseColor(colorOptions[i]))
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\category\CategoryFragment.kt:112: Warning: Use the KTX extension function String.toColorInt instead? [UseKtx]
+            v.setBackgroundColor(android.graphics.Color.parseColor(colorOptions[i]))
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\utils\Extensions.kt:83: Warning: Use the KTX extension function String.toColorInt instead? [UseKtx]
+    return try { Color.parseColor(this) } catch (e: Exception) { Color.BLUE }
+                 ~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\search\SearchActivity.kt:106: Warning: Use the KTX extension function String.toColorInt instead? [UseKtx]
+                setBackgroundColor(android.graphics.Color.parseColor("#2196F3"))
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\utils\SessionManager.kt:17: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+        prefs.edit()
+        ~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\utils\SessionManager.kt:25: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+        prefs.edit().clear().apply()
+        ~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\statistics\StatsPieView.kt:16: Warning: Use the KTX extension function String.toColorInt instead? [UseKtx]
+        color = Color.parseColor("#4CAF50")
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\statistics\StatsPieView.kt:16: Warning: Use the KTX extension function String.toColorInt instead? [UseKtx]
+        color = Color.parseColor("#4CAF50")
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\statistics\StatsPieView.kt:20: Warning: Use the KTX extension function String.toColorInt instead? [UseKtx]
+        color = Color.parseColor("#F44336")
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\statistics\StatsPieView.kt:20: Warning: Use the KTX extension function String.toColorInt instead? [UseKtx]
+        color = Color.parseColor("#F44336")
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\tag\TagFragment.kt:74: Warning: Use the KTX extension function String.toColorInt instead? [UseKtx]
+            v.setBackgroundColor(Color.parseColor(colorOptions[i]))
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\tag\TagFragment.kt:95: Warning: Use the KTX extension function String.toColorInt instead? [UseKtx]
+            v.setBackgroundColor(Color.parseColor(colorOptions[i]))
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\tag\TagFragment.kt:146: Warning: Use the KTX extension function String.toColorInt instead? [UseKtx]
+        try { holder.vColor.setBackgroundColor(Color.parseColor(tag.color)) }
+                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\task\TaskAdapter.kt:59: Warning: Use the KTX extension function String.toColorInt instead? [UseKtx]
+            holder.vCategoryColor.setBackgroundColor(Color.parseColor(task.categoryColor))
+                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\task\TaskAdapter.kt:72: Warning: Use the KTX extension function String.toColorInt instead? [UseKtx]
+                try { setBackgroundColor(Color.parseColor(tag.color)) } catch (e: Exception) { setBackgroundColor(Color.GRAY) }
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UseKtx":
+   The Android KTX libraries decorates the Android platform SDK as well as
+   various libraries with more convenient extension functions available from
+   Kotlin, allowing you to use default parameters, named parameters, and
+   more.
+
+   Available options:
+
+   **remove-defaults** (default is true):
+   Whether to skip arguments that match the defaults provided by the extension.
+
+   Extensions often provide default values for some of the parameters. For example:
+   ```kotlin
+   fun Path.readLines(charset: Charset = Charsets.UTF_8): List<String> { return Files.readAllLines(this, charset) }
+   ```
+   This lint check will by default automatically omit parameters that match the default, so if your code was calling
+
+   ```kotlin
+   Files.readAllLines(file, Charset.UTF_8)
+   ```
+   lint would replace this with
+   ```kotlin
+   file.readLines()
+   ```
+   rather than
+
+   ```kotlin
+   file.readLines(Charset.UTF_8
+   ```
+   You can turn this behavior off using this option.
+
+   To configure this option, use a `lint.xml` file with an <option> like this:
+
+   ```xml
+   <lint>
+       <issue id="UseKtx">
+           <option name="remove-defaults" value="true" />
+       </issue>
+   </lint>
+   ```
+
+   **require-present** (default is true):
+   Whether to only offer extensions already available.
+
+   This option lets you only have lint suggest extension replacements if those extensions are already available on the class path (in other words, you're already depending on the library containing the extension method.)
+
+   To configure this option, use a `lint.xml` file with an <option> like this:
+
+   ```xml
+   <lint>
+       <issue id="UseKtx">
+           <option name="require-present" value="true" />
+       </issue>
+   </lint>
+   ```
+
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_add_task.xml:10: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageButton android:id="@+id/ibBack" android:layout_width="40dp" android:layout_height="40dp" android:src="@android:drawable/ic_media_previous" android:background="?attr/selectableItemBackgroundBorderless" app:tint="#FFFFFF"/>
+         ~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_add_task.xml:40: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_change_password.xml:10: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageButton android:id="@+id/ibBack" android:layout_width="40dp" android:layout_height="40dp" android:src="@android:drawable/ic_media_previous" android:background="?attr/selectableItemBackgroundBorderless" app:tint="#FFFFFF"/>
+         ~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_main.xml:15: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_register.xml:16: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageButton
+         ~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_search.xml:13: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageButton android:id="@+id/ibBack" android:layout_width="40dp" android:layout_height="40dp"
+         ~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:12: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageButton android:id="@+id/ibBack" android:layout_width="40dp" android:layout_height="40dp"
+         ~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:33: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView android:id="@+id/ivEditTitle" android:layout_width="36dp" android:layout_height="36dp"
+                 ~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:50: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView android:id="@+id/ivEditNote" android:layout_width="36dp" android:layout_height="36dp"
+                 ~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_category.xml:26: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_tag.xml:27: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_task_list.xml:25: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageView
+         ~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\item_category.xml:21: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageButton android:id="@+id/ibEdit" android:layout_width="36dp" android:layout_height="36dp"
+         ~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\item_category.xml:26: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageButton android:id="@+id/ibDelete" android:layout_width="36dp" android:layout_height="36dp"
+         ~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\item_tag.xml:21: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageButton android:id="@+id/ibEdit" android:layout_width="36dp" android:layout_height="36dp"
+         ~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\item_tag.xml:25: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageButton android:id="@+id/ibDelete" android:layout_width="36dp" android:layout_height="36dp"
+         ~~~~~~~~~~~
+
+   Explanation for issues of type "ContentDescription":
+   Non-textual widgets like ImageViews and ImageButtons should use the
+   contentDescription attribute to specify a textual description of the widget
+   such that screen readers and other accessibility tools can adequately
+   describe the user interface.
+
+   Note that elements in application screens that are purely decorative and do
+   not provide any content or enable a user action should not have
+   accessibility content descriptions. In this case, set their descriptions to
+   @null. If your app's minSdkVersion is 16 or higher, you can instead set
+   these graphical elements' android:importantForAccessibility attributes to
+   no.
+
+   Note that for text fields, you should not set both the hint and the
+   contentDescription attributes since the hint will never be shown. Just set
+   the hint.
+
+   https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases
+
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\statistics\StatisticsFragment.kt:86: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        tvTotal.text = "Tổng: ${stats.total}"
+                       ~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\statistics\StatisticsFragment.kt:86: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        tvTotal.text = "Tổng: ${stats.total}"
+                        ~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\statistics\StatisticsFragment.kt:87: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        tvCompleted.text = "Hoàn thành: ${stats.completed}"
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\statistics\StatisticsFragment.kt:87: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        tvCompleted.text = "Hoàn thành: ${stats.completed}"
+                            ~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\statistics\StatisticsFragment.kt:88: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        tvPending.text = "Chưa hoàn thành: ${stats.pending}"
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\statistics\StatisticsFragment.kt:88: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        tvPending.text = "Chưa hoàn thành: ${stats.pending}"
+                          ~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\statistics\StatisticsFragment.kt:89: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        tvRate.text = "Tỉ lệ hoàn thành: ${"%.1f".format(stats.completionRate)}%"
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\statistics\StatisticsFragment.kt:89: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        tvRate.text = "Tỉ lệ hoàn thành: ${"%.1f".format(stats.completionRate)}%"
+                       ~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\java\com\example\todoapp\ui\statistics\StatisticsFragment.kt:89: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        tvRate.text = "Tỉ lệ hoàn thành: ${"%.1f".format(stats.completionRate)}%"
+                                            ~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_add_task.xml:11: Warning: Hardcoded string "Thêm Công Việc", should use @string resource [HardcodedText]
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Thêm Công Việc" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" android:layout_marginStart="8dp"/>
+                                                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_add_task.xml:17: Warning: Hardcoded string "Tiêu đề công việc *", should use @string resource [HardcodedText]
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Tiêu đề công việc *" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_marginBottom="12dp">
+                                                                                                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_add_task.xml:21: Warning: Hardcoded string "Ghi chú", should use @string resource [HardcodedText]
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Ghi chú" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_marginBottom="12dp">
+                                                                                                                                            ~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_add_task.xml:25: Warning: Hardcoded string "Danh mục", should use @string resource [HardcodedText]
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Danh mục" android:textColor="#757575" android:textSize="12sp" android:layout_marginTop="8dp"/>
+                                                                                               ~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_add_task.xml:26: Warning: Hardcoded string "Chọn danh mục *", should use @string resource [HardcodedText]
+            <TextView android:id="@+id/tvCategory" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Chọn danh mục *" android:textColor="#1976D2" android:padding="12dp" android:background="@android:drawable/btn_default" android:layout_marginBottom="12dp"/>
+                                                                                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_add_task.xml:28: Warning: Hardcoded string "Nhãn", should use @string resource [HardcodedText]
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Nhãn" android:textColor="#757575" android:textSize="12sp" android:layout_marginTop="8dp"/>
+                                                                                               ~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_add_task.xml:29: Warning: Hardcoded string "Chọn nhãn", should use @string resource [HardcodedText]
+            <TextView android:id="@+id/tvTags" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Chọn nhãn" android:textColor="#1976D2" android:padding="12dp" android:background="@android:drawable/btn_default" android:layout_marginBottom="12dp"/>
+                                                                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_add_task.xml:31: Warning: Hardcoded string "Hạn hoàn thành", should use @string resource [HardcodedText]
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Hạn hoàn thành" android:textColor="#757575" android:textSize="12sp" android:layout_marginTop="8dp"/>
+                                                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_add_task.xml:32: Warning: Hardcoded string "Chọn ngày và giờ", should use @string resource [HardcodedText]
+            <TextView android:id="@+id/tvDueDate" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Chọn ngày và giờ" android:textColor="#1976D2" android:padding="12dp" android:background="@android:drawable/btn_default" android:layout_marginBottom="12dp"/>
+                                                                                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_add_task.xml:34: Warning: Hardcoded string "Giờ nhắc (chỉ lưu trên máy)", should use @string resource [HardcodedText]
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Giờ nhắc (chỉ lưu trên máy)" android:textColor="#757575" android:textSize="12sp" android:layout_marginTop="8dp"/>
+                                                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_add_task.xml:35: Warning: Hardcoded string "Chọn ngày và giờ nhắc", should use @string resource [HardcodedText]
+            <TextView android:id="@+id/tvReminderTime" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Chọn ngày và giờ nhắc" android:textColor="#1976D2" android:padding="12dp" android:background="@android:drawable/btn_default" android:layout_marginBottom="24dp"/>
+                                                                                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_change_password.xml:11: Warning: Hardcoded string "Đổi Mật Khẩu", should use @string resource [HardcodedText]
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Đổi Mật Khẩu" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" android:layout_marginStart="8dp"/>
+                                                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_change_password.xml:16: Warning: Hardcoded string "Mật khẩu cũ", should use @string resource [HardcodedText]
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Mật khẩu cũ" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_marginBottom="12dp" app:passwordToggleEnabled="true">
+                                                                                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_change_password.xml:20: Warning: Hardcoded string "Mật khẩu mới", should use @string resource [HardcodedText]
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Mật khẩu mới" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_marginBottom="12dp" app:passwordToggleEnabled="true">
+                                                                                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_change_password.xml:24: Warning: Hardcoded string "Xác nhận mật khẩu mới", should use @string resource [HardcodedText]
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Xác nhận mật khẩu mới" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_marginBottom="24dp" app:passwordToggleEnabled="true">
+                                                                                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_change_password.xml:28: Warning: Hardcoded string "ĐỔI MẬT KHẨU", should use @string resource [HardcodedText]
+        <Button android:id="@+id/btnChange" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ĐỔI MẬT KHẨU" android:backgroundTint="#1976D2"/>
+                                                                                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_login.xml:17: Warning: Hardcoded string "📋", should use @string resource [HardcodedText]
+            android:text="📋"
+            ~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_login.xml:24: Warning: Hardcoded string "Quản Lý Công Việc", should use @string resource [HardcodedText]
+            android:text="Quản Lý Công Việc"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_login.xml:34: Warning: Hardcoded string "Tên đăng nhập", should use @string resource [HardcodedText]
+            android:hint="Tên đăng nhập"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_login.xml:47: Warning: Hardcoded string "Mật khẩu", should use @string resource [HardcodedText]
+            android:hint="Mật khẩu"
+            ~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_login.xml:63: Warning: Hardcoded string "ĐĂNG NHẬP", should use @string resource [HardcodedText]
+            android:text="ĐĂNG NHẬP"
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_login.xml:74: Warning: Hardcoded string "Chưa có tài khoản? ", should use @string resource [HardcodedText]
+                android:text="Chưa có tài khoản? "/>
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_login.xml:79: Warning: Hardcoded string "Đăng ký ngay", should use @string resource [HardcodedText]
+                android:text="Đăng ký ngay"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_register.xml:26: Warning: Hardcoded string "Đăng Ký", should use @string resource [HardcodedText]
+            android:text="Đăng Ký"
+            ~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_register.xml:40: Warning: Hardcoded string "Họ và tên", should use @string resource [HardcodedText]
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Họ và tên" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_marginBottom="12dp">
+                                                                                                                                            ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_register.xml:44: Warning: Hardcoded string "Tên đăng nhập *", should use @string resource [HardcodedText]
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Tên đăng nhập *" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_marginBottom="12dp">
+                                                                                                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_register.xml:48: Warning: Hardcoded string "Email *", should use @string resource [HardcodedText]
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Email *" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_marginBottom="12dp">
+                                                                                                                                            ~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_register.xml:52: Warning: Hardcoded string "Số điện thoại", should use @string resource [HardcodedText]
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Số điện thoại" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_marginBottom="12dp">
+                                                                                                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_register.xml:56: Warning: Hardcoded string "Mật khẩu *", should use @string resource [HardcodedText]
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Mật khẩu *" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_marginBottom="12dp" app:passwordToggleEnabled="true">
+                                                                                                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_register.xml:60: Warning: Hardcoded string "Xác nhận mật khẩu *", should use @string resource [HardcodedText]
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Xác nhận mật khẩu *" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_marginBottom="24dp" app:passwordToggleEnabled="true">
+                                                                                                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_register.xml:64: Warning: Hardcoded string "ĐĂNG KÝ", should use @string resource [HardcodedText]
+            <Button android:id="@+id/btnRegister" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ĐĂNG KÝ" android:backgroundTint="#1976D2"/>
+                                                                                                                           ~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_search.xml:19: Warning: Hardcoded string "Tìm kiếm công việc...", should use @string resource [HardcodedText]
+            android:background="#FFFFFF" android:hint="Tìm kiếm công việc..."
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_search.xml:24: Warning: Hardcoded string "Nhãn", should use @string resource [HardcodedText]
+            android:layout_height="32dp" android:text="Nhãn"
+                                         ~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_search.xml:38: Warning: Hardcoded string "Không tìm thấy kết quả", should use @string resource [HardcodedText]
+        android:layout_height="match_parent" android:text="Không tìm thấy kết quả"
+                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:16: Warning: Hardcoded string "Chi Tiết Công Việc", should use @string resource [HardcodedText]
+            android:text="Chi Tiết Công Việc" android:textColor="#FFFFFF" android:textSize="18sp"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:32: Warning: Hardcoded string "Tiêu đề", should use @string resource [HardcodedText]
+                    android:textColor="#212121" android:text="Tiêu đề"/>
+                                                ~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:42: Warning: Hardcoded string "GHI CHÚ", should use @string resource [HardcodedText]
+                android:text="GHI CHÚ" android:textSize="11sp" android:textColor="#9E9E9E"
+                ~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:49: Warning: Hardcoded string "Ghi chú", should use @string resource [HardcodedText]
+                    android:text="Ghi chú"/>
+                    ~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:59: Warning: Hardcoded string "DANH MỤC", should use @string resource [HardcodedText]
+                android:text="DANH MỤC" android:textSize="11sp" android:textColor="#9E9E9E"
+                ~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:63: Warning: Hardcoded string "Danh mục", should use @string resource [HardcodedText]
+                android:text="Danh mục" android:padding="8dp" android:layout_marginBottom="12dp"
+                ~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:68: Warning: Hardcoded string "NHÃN", should use @string resource [HardcodedText]
+                android:text="NHÃN" android:textSize="11sp" android:textColor="#9E9E9E"
+                ~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:72: Warning: Hardcoded string "Nhãn", should use @string resource [HardcodedText]
+                android:text="Nhãn" android:padding="8dp" android:layout_marginBottom="12dp"
+                ~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:77: Warning: Hardcoded string "HẠN HOÀN THÀNH", should use @string resource [HardcodedText]
+                android:text="HẠN HOÀN THÀNH" android:textSize="11sp" android:textColor="#9E9E9E"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:81: Warning: Hardcoded string "Không có hạn", should use @string resource [HardcodedText]
+                android:text="Không có hạn" android:padding="8dp" android:layout_marginBottom="12dp"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:86: Warning: Hardcoded string "GIỜ NHẮC (CHỈ LƯU TRÊN MÁY)", should use @string resource [HardcodedText]
+                android:text="GIỜ NHẮC (CHỈ LƯU TRÊN MÁY)" android:textSize="11sp" android:textColor="#9E9E9E"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:90: Warning: Hardcoded string "Chưa lưu giờ nhắc", should use @string resource [HardcodedText]
+                android:text="Chưa lưu giờ nhắc" android:padding="8dp" android:layout_marginBottom="24dp"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_task_detail.xml:97: Warning: Hardcoded string "🗑 Xóa công việc này", should use @string resource [HardcodedText]
+                android:layout_height="wrap_content" android:text="🗑 Xóa công việc này"
+                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\menu\bottom_nav_menu.xml:3: Warning: Hardcoded string "Công việc", should use @string resource [HardcodedText]
+    <item android:id="@+id/nav_tasks" android:title="Công việc" android:icon="@android:drawable/ic_menu_agenda"/>
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\menu\bottom_nav_menu.xml:4: Warning: Hardcoded string "Danh mục", should use @string resource [HardcodedText]
+    <item android:id="@+id/nav_categories" android:title="Danh mục" android:icon="@android:drawable/ic_menu_sort_by_size"/>
+                                           ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\menu\bottom_nav_menu.xml:5: Warning: Hardcoded string "Thống kê", should use @string resource [HardcodedText]
+    <item android:id="@+id/nav_statistics" android:title="Thống kê" android:icon="@android:drawable/ic_menu_upload_you_tube"/>
+                                           ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\menu\bottom_nav_menu.xml:6: Warning: Hardcoded string "Cá nhân", should use @string resource [HardcodedText]
+    <item android:id="@+id/nav_profile" android:title="Cá nhân" android:icon="@android:drawable/ic_menu_my_calendar"/>
+                                        ~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\dialog_category.xml:10: Warning: Hardcoded string "Tên danh mục", should use @string resource [HardcodedText]
+        android:hint="Tên danh mục" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\dialog_category.xml:18: Warning: Hardcoded string "Màu sắc", should use @string resource [HardcodedText]
+        android:text="Màu sắc" android:textStyle="bold" android:layout_marginBottom="8dp"/>
+        ~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\dialog_category.xml:35: Warning: Hardcoded string "Icon", should use @string resource [HardcodedText]
+        android:text="Icon" android:textStyle="bold" android:layout_marginBottom="8dp"/>
+        ~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\dialog_category.xml:40: Warning: Hardcoded string "📁", should use @string resource [HardcodedText]
+            android:text="📁" android:textSize="24sp" android:gravity="center" android:layout_marginEnd="8dp"/>
+            ~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\dialog_category.xml:42: Warning: Hardcoded string "💼", should use @string resource [HardcodedText]
+            android:text="💼" android:textSize="24sp" android:gravity="center" android:layout_marginEnd="8dp"/>
+            ~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\dialog_category.xml:44: Warning: Hardcoded string "🎓", should use @string resource [HardcodedText]
+            android:text="🎓" android:textSize="24sp" android:gravity="center" android:layout_marginEnd="8dp"/>
+            ~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\dialog_category.xml:46: Warning: Hardcoded string "🏠", should use @string resource [HardcodedText]
+            android:text="🏠" android:textSize="24sp" android:gravity="center" android:layout_marginEnd="8dp"/>
+            ~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\dialog_category.xml:48: Warning: Hardcoded string "⭐", should use @string resource [HardcodedText]
+            android:text="⭐" android:textSize="24sp" android:gravity="center"/>
+            ~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\dialog_edit_profile.xml:10: Warning: Hardcoded string "Họ và tên", should use @string resource [HardcodedText]
+        android:hint="Họ và tên"
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\dialog_edit_profile.xml:20: Warning: Hardcoded string "Email", should use @string resource [HardcodedText]
+        android:hint="Email"
+        ~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\dialog_edit_profile.xml:30: Warning: Hardcoded string "Số điện thoại", should use @string resource [HardcodedText]
+        android:hint="Số điện thoại"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\dialog_tag.xml:10: Warning: Hardcoded string "Tên nhãn", should use @string resource [HardcodedText]
+        android:hint="Tên nhãn" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        ~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\dialog_tag.xml:18: Warning: Hardcoded string "Màu sắc", should use @string resource [HardcodedText]
+        android:text="Màu sắc" android:textStyle="bold" android:layout_marginBottom="8dp"/>
+        ~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_category.xml:12: Warning: Hardcoded string "Danh Mục", should use @string resource [HardcodedText]
+            android:text="Danh Mục" android:textColor="#FFFFFF" android:textSize="18sp"
+            ~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_category.xml:18: Warning: Hardcoded string "Chưa có danh mục nàonNhấn + để thêm", should use @string resource [HardcodedText]
+        android:text="Chưa có danh mục nào\nNhấn + để thêm"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:12: Warning: Hardcoded string "Tài Khoản", should use @string resource [HardcodedText]
+            android:text="Tài Khoản" android:textColor="#FFFFFF"
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:26: Warning: Hardcoded string "👤", should use @string resource [HardcodedText]
+                    android:text="👤" android:textSize="48sp" android:gravity="center"
+                    ~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:29: Warning: Hardcoded string "username", should use @string resource [HardcodedText]
+                    android:layout_height="wrap_content" android:text="username"
+                                                         ~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:42: Warning: Hardcoded string "THÔNG TIN CÁ NHÂN", should use @string resource [HardcodedText]
+                        android:text="THÔNG TIN CÁ NHÂN" android:textSize="11sp"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:48: Warning: Hardcoded string "Họ tên:", should use @string resource [HardcodedText]
+                            android:text="Họ tên:" android:textColor="#757575"/>
+                            ~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:51: Warning: Hardcoded string "—", should use @string resource [HardcodedText]
+                            android:text="—" android:textColor="#212121" android:textStyle="bold"/>
+                            ~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:57: Warning: Hardcoded string "Email:", should use @string resource [HardcodedText]
+                            android:text="Email:" android:textColor="#757575"/>
+                            ~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:60: Warning: Hardcoded string "—", should use @string resource [HardcodedText]
+                            android:text="—" android:textColor="#212121" android:textStyle="bold"/>
+                            ~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:66: Warning: Hardcoded string "Điện thoại:", should use @string resource [HardcodedText]
+                            android:text="Điện thoại:" android:textColor="#757575"/>
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:69: Warning: Hardcoded string "—", should use @string resource [HardcodedText]
+                            android:text="—" android:textColor="#212121" android:textStyle="bold"/>
+                            ~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:76: Warning: Hardcoded string "✏️  Chỉnh sửa thông tin", should use @string resource [HardcodedText]
+                android:layout_height="wrap_content" android:text="✏️  Chỉnh sửa thông tin"
+                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:80: Warning: Hardcoded string "🔒  Đổi mật khẩu", should use @string resource [HardcodedText]
+                android:layout_height="wrap_content" android:text="🔒  Đổi mật khẩu"
+                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:84: Warning: Hardcoded string "🏷️  Quản lý nhãn", should use @string resource [HardcodedText]
+                android:layout_height="wrap_content" android:text="🏷️  Quản lý nhãn"
+                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:88: Warning: Hardcoded string "🚪  Đăng xuất", should use @string resource [HardcodedText]
+                android:layout_height="wrap_content" android:text="🚪  Đăng xuất"
+                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_statistics.xml:12: Warning: Hardcoded string "Thống Kê", should use @string resource [HardcodedText]
+            android:text="Thống Kê" android:textColor="#FFFFFF"
+            ~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_statistics.xml:22: Warning: Hardcoded string "Lọc theo thời gian", should use @string resource [HardcodedText]
+                android:text="Lọc theo thời gian" android:textStyle="bold"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_statistics.xml:41: Warning: Hardcoded string "Tổng: 0", should use @string resource [HardcodedText]
+                            android:layout_height="wrap_content" android:text="Tổng: 0"
+                                                                 ~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_statistics.xml:55: Warning: Hardcoded string "Hoàn thành: 0", should use @string resource [HardcodedText]
+                            android:layout_height="wrap_content" android:text="Hoàn thành: 0"
+                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_statistics.xml:73: Warning: Hardcoded string "Chưa xong: 0", should use @string resource [HardcodedText]
+                            android:layout_height="wrap_content" android:text="Chưa xong: 0"
+                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_statistics.xml:87: Warning: Hardcoded string "Tỉ lệ: 0%", should use @string resource [HardcodedText]
+                            android:layout_height="wrap_content" android:text="Tỉ lệ: 0%"
+                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_statistics.xml:95: Warning: Hardcoded string "Tiến độ hoàn thành", should use @string resource [HardcodedText]
+                android:text="Tiến độ hoàn thành" android:textStyle="bold"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_statistics.xml:105: Warning: Hardcoded string "Biểu đồ tròn", should use @string resource [HardcodedText]
+                android:text="Biểu đồ tròn" android:textStyle="bold"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_tag.xml:13: Warning: Hardcoded string "Quản Lý Nhãn", should use @string resource [HardcodedText]
+            android:text="Quản Lý Nhãn" android:textColor="#FFFFFF"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_tag.xml:19: Warning: Hardcoded string "Chưa có nhãn nàonNhấn + để thêm", should use @string resource [HardcodedText]
+        android:text="Chưa có nhãn nào\nNhấn + để thêm"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_task_list.xml:21: Warning: Hardcoded string "Tất Cả Công Việc", should use @string resource [HardcodedText]
+            android:text="Tất Cả Công Việc"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_task_list.xml:39: Warning: Hardcoded string "Chưa có công việc nàonNhấn + để thêm công việc mới", should use @string resource [HardcodedText]
+        android:text="Chưa có công việc nào\nNhấn + để thêm công việc mới"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\item_category.xml:19: Warning: Hardcoded string "Tên danh mục", should use @string resource [HardcodedText]
+            android:textSize="16sp" android:textColor="#212121" android:text="Tên danh mục"/>
+                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\item_tag.xml:19: Warning: Hardcoded string "Tên nhãn", should use @string resource [HardcodedText]
+            android:textSize="16sp" android:textColor="#212121" android:text="Tên nhãn"/>
+                                                                ~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\item_task.xml:46: Warning: Hardcoded string "Tên công việc", should use @string resource [HardcodedText]
+                android:text="Tên công việc"/>
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\item_task.xml:62: Warning: Hardcoded string "Hạn chót", should use @string resource [HardcodedText]
+                    android:text="Hạn chót"
+                    ~~~~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\item_task.xml:71: Warning: Hardcoded string "Danh mục", should use @string resource [HardcodedText]
+                    android:text="Danh mục"/>
+                    ~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_add_task.xml:9: Warning: When you define paddingStart you should probably also define paddingEnd for right-to-left symmetry [RtlSymmetry]
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp" android:orientation="horizontal" android:gravity="center_vertical" android:background="#1976D2" android:paddingStart="8dp">
+                                                                                                                                                                                   ~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_change_password.xml:9: Warning: When you define paddingStart you should probably also define paddingEnd for right-to-left symmetry [RtlSymmetry]
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp" android:orientation="horizontal" android:gravity="center_vertical" android:background="#1976D2" android:paddingStart="8dp">
+                                                                                                                                                                                   ~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\activity_register.xml:15: Warning: When you define paddingStart you should probably also define paddingEnd for right-to-left symmetry [RtlSymmetry]
+        android:paddingStart="8dp">
+        ~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_category.xml:10: Warning: When you define paddingStart you should probably also define paddingEnd for right-to-left symmetry [RtlSymmetry]
+        android:background="#1976D2" android:paddingStart="16dp">
+                                     ~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_profile.xml:10: Warning: When you define paddingStart you should probably also define paddingEnd for right-to-left symmetry [RtlSymmetry]
+        android:background="#1976D2" android:paddingStart="16dp">
+                                     ~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_statistics.xml:10: Warning: When you define paddingStart you should probably also define paddingEnd for right-to-left symmetry [RtlSymmetry]
+        android:background="#1976D2" android:paddingStart="16dp">
+                                     ~~~~~~~~~~~~~~~~~~~~
+D:\HocTap\PTUDMobile\TodoApp\TodoApp\TodoApp\app\src\main\res\layout\fragment_tag.xml:11: Warning: When you define paddingStart you should probably also define paddingEnd for right-to-left symmetry [RtlSymmetry]
+        android:background="#1976D2" android:paddingStart="16dp">
+                                     ~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "RtlSymmetry":
+   If you specify padding or margin on the left side of a layout, you should
+   probably also specify padding on the right side (and vice versa) for
+   right-to-left layout symmetry.
+
+0 errors, 192 warnings

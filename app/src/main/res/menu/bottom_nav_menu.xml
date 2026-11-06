@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_tasks" android:title="Công việc" android:icon="@android:drawable/ic_menu_agenda"/>
+    <item android:id="@+id/nav_categories" android:title="Danh mục" android:icon="@android:drawable/ic_menu_sort_by_size"/>
+    <item android:id="@+id/nav_statistics" android:title="Thống kê" android:icon="@android:drawable/ic_menu_upload_you_tube"/>
+    <item android:id="@+id/nav_profile" android:title="Cá nhân" android:icon="@android:drawable/ic_menu_my_calendar"/>
+</menu>

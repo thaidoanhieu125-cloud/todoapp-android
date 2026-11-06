@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp" android:orientation="horizontal" android:gravity="center_vertical" android:background="#1976D2" android:paddingStart="8dp">
+        <ImageButton android:id="@+id/ibBack" android:layout_width="40dp" android:layout_height="40dp" android:src="@android:drawable/ic_media_previous" android:background="?attr/selectableItemBackgroundBorderless" app:tint="#FFFFFF"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Thêm Công Việc" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Tiêu đề công việc *" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_marginBottom="12dp">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etTitle" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Ghi chú" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_marginBottom="12dp">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etNote" android:layout_width="match_parent" android:layout_height="wrap_content" android:minLines="3" android:gravity="top|start"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Danh mục" android:textColor="#757575" android:textSize="12sp" android:layout_marginTop="8dp"/>
+            <TextView android:id="@+id/tvCategory" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Chọn danh mục *" android:textColor="#1976D2" android:padding="12dp" android:background="@android:drawable/btn_default" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Nhãn" android:textColor="#757575" android:textSize="12sp" android:layout_marginTop="8dp"/>
+            <TextView android:id="@+id/tvTags" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Chọn nhãn" android:textColor="#1976D2" android:padding="12dp" android:background="@android:drawable/btn_default" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Hạn hoàn thành" android:textColor="#757575" android:textSize="12sp" android:layout_marginTop="8dp"/>
+            <TextView android:id="@+id/tvDueDate" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Chọn ngày và giờ" android:textColor="#1976D2" android:padding="12dp" android:background="@android:drawable/btn_default" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Giờ nhắc (chỉ lưu trên máy)" android:textColor="#757575" android:textSize="12sp" android:layout_marginTop="8dp"/>
+            <TextView android:id="@+id/tvReminderTime" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Chọn ngày và giờ nhắc" android:textColor="#1976D2" android:padding="12dp" android:background="@android:drawable/btn_default" android:layout_marginBottom="24dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_margin="16dp"
+        android:src="@android:drawable/ic_menu_save"
+        app:backgroundTint="#1976D2"
+        app:tint="#FFFFFF"/>
+
+</LinearLayout>
